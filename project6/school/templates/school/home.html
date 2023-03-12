@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query SET API</title>
+    <link rel="stylesheet" href="{% static 'school/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'school/css/style.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="text-center mx-1 my-3" >Learning Query set API which return queryset</h1>
+        {% if data %}
+              <table class="table table-hover bg-white table-dark table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th class="col" style="width:4%">ID</th>
+                        <th class="col" style="width:20%">School</th>
+                        <th class="col" style="width:10%">Sex</th>
+                        <th class="col" style="width:10%">Age</th>
+                        <th class="col" style="width:15%">Mjob</th>
+                        <th class="col" style="width:15%">Fjob</th>
+                        <th class="col" style="width:20%">Reason</th>
+                        <th class="col" style="width:20%">Guardian</th>
+                        <th class="col" style="width:20%">Paid</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {% for i in data %}
+                        <tr>
+                            <th scope="row">{{i.id}}</th>
+                            <td>{{i.School}}</td>
+                            <td>{{i.Sex}}</td>
+                            <td>{{i.Age}}</td>
+                            <td>{{i.Mjob}}</td>
+                            <td>{{i.Fjob}}</td>
+                            <td>{{i.Reason}}</td>
+                            <td>{{i.Guardian}}</td>
+                            <td>{{i.Paid}}</td>
+                        </tr>
+                    {% endfor %}        
+                </tbody>
+              </table>
+            {% else %}
+              <h3>You have no student record!</h3>
+            {% endif %}
+        
+    </div>
+
+
+      <script src="{% static 'school/js/popper.js' %}"></script>
+      <script src="{% static 'school/js/bootstrap.js' %}"></script>
+</body>
+</html>
